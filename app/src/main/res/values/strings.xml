@@ -1,0 +1,49 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_name">VUDRMWidevine</string>
+    <string name="launch_text">Launch Player</string>
+    <string name="download_text">Download</string>
+    <string name="delete_text">Delete</string>
+
+    <string name="stream_url_hint">Stream URL</string>
+    <string name="drm_token_hint">DRM token</string>
+    <string name="content_id_hint">Content ID</string>
+
+    <string name="stream_url_validation">Stream URL Required</string>
+    <string name="drm_token_validation">DRM token Required</string>
+    <string name="content_id_validation">Content ID Required</string>
+
+    <string name="browse_radio_simple_text">Simple ExoPlayer</string>
+    <string name="browse_radio_advanced_text">Advanced ExoPlayer</string>
+
+    <string name="download_start_error">Failed to start download</string>
+    <string name="sample_list_load_error">One or more sample lists failed to load</string>
+
+
+    <string name="error_cleartext_not_permitted">Cleartext traffic not permitted</string>
+
+    <string name="error_generic">Playback failed</string>
+
+    <string name="error_unrecognized_abr_algorithm">Unrecognized ABR algorithm</string>
+
+    <string name="error_unrecognized_stereo_mode">Unrecognized stereo mode</string>
+
+    <string name="error_drm_not_supported">Protected content not supported on API levels below 18</string>
+
+    <string name="error_drm_unsupported_scheme">This device does not support the required DRM scheme</string>
+
+    <string name="error_drm_unknown">An unknown DRM error occurred</string>
+
+    <string name="error_no_decoder">This device does not provide a decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+
+    <string name="error_no_secure_decoder">This device does not provide a secure decoder for <xliff:g id="mime_type">%1$s</xliff:g></string>
+
+    <string name="error_querying_decoders">Unable to query device decoders</string>
+
+    <string name="error_instantiating_decoder">Unable to instantiate decoder <xliff:g id="decoder_name">%1$s</xliff:g></string>
+
+    <string name="error_unsupported_video">Media includes video tracks, but none are playable by this device</string>
+
+    <string name="error_unsupported_audio">Media includes audio tracks, but none are playable by this device</string>
+
+</resources>
