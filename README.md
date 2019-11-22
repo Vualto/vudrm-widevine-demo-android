@@ -16,7 +16,10 @@ VUDRMWidevine is an Android Archive (AAR) which can be used during the media ren
 - Access to our token generation system.
 - A valid username and password are required to access the VUDRMWidevine SDK from our Maven repository.
 - Minimum Android SDK version is 19 (Android 4.4)
+- Maximum Android SDK version is 28 (Android 9)
 - Android Studio 3.3.2
+
+You can install new versions of the Android SDK by clicking the SDK manager button ![SDK manager icon](SDKManager.png) which by default located in the top right corner of android studio. Then simply select the version you wish to insall and press "Apply".
 
 ### VUDRM
 For further information about VUDRM, or for help configuring this demo application, please contact us.
@@ -43,6 +46,12 @@ You may then:
 - manually enter the URL of the Widevine encrypted stream, the ContentID, and token on device in the running demo application and select the *Launch Player* button to play the stream.
 
 A token generated with a persistent policy is required to use offline playback. This token will allow storage of the license on device and playback of downloaded content.
+
+Build
+----------
+To build the project start by adding a new configuration. This can be done by pressing the "Add Configuration..." button followed by pressing the "+" icon and selecting "Gradle".
+Then set the "Gradle project" to `C:/path/to/repo/app` and `Tasks` to `build`.
+Now when you press the run button the project will build.
 
 ### Known Issues
 
