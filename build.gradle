@@ -2,47 +2,25 @@
 
 buildscript {
     repositories {
-        jcenter()
         google()
-        maven { url "https://maven.google.com" }
+        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath 'com.android.tools.build:gradle:4.0.2'
     }
 }
 
 allprojects {
     repositories {
+        google()
         jcenter()
-        maven { url "https://maven.google.com" }
-        maven {
-            url "https://maven.drm.technology/artifactory/vudrm-widevine"
-            credentials {
-                username = mavenUsername
-                password = mavenPassword
-            }
-        }
-        maven {
-            url "https://maven.drm.technology/artifactory/kid-plugin"
-            credentials {
-                username = mavenUsername
-                password = mavenPassword
-            }
-        }
-
+        mavenCentral()
     }
-
     project.ext {
-        minSdkVersion = 19
-        compileSdkVersion = 28
-        targetSdkVersion = 28
-        buildToolsVersion = '28.0.3'
-        exoplayerVersion = "2.9.6"
-        androidSupportVersion = "28.0.0"
+        exoplayerVersion = "2.12.1"
     }
+
 }
 
 task clean(type: Delete) {

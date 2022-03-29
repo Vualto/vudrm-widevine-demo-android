@@ -1,0 +1,20 @@
+[
+  {
+    "name": "JW Player",
+    "samples": [
+      {
+        "name": "Tomorrowland Clear",
+        "uri": "https://d1chyo78gdexn4.cloudfront.net/vualto-demo/tomorrowland2015/tomorrowland2015_nodrm.ism/manifest.mpd"
+      },
+      {
+        "name": "Tomorrowland Widevine (Studio DRM)",
+        "uri": "https://d1chyo78gdexn4.cloudfront.net/vualto-demo/tomorrowland2015/tomorrowland2015-inline.ism/.mpd",
+        "drm_scheme": "widevine",
+        "drm_license_url": "https://widevine-license.vudrm.tech/proxy",
+        "drm_key_request_properties": {
+          "x-vudrm-token": ""
+        }
+      }
+    ]
+  }
+]

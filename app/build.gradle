@@ -1,22 +1,18 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion project.compileSdkVersion
-    buildToolsVersion project.buildToolsVersion
-
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.vualto.vudrm.widevinedemo"
-        minSdkVersion project.minSdkVersion
-        targetSdkVersion project.targetSdkVersion
+        applicationId "com.vualto.studiodrm.widevinedemo"
+        minSdkVersion 21
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "WIDEVINE_LICENSE_SERVER_URL", "\"https://widevine-proxy.drm.technology/proxy\""
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //multiDexEnabled true
     }
     buildTypes {
-        debug {
-            minifyEnabled false
-        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -26,23 +22,57 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    flavorDimensions "decoderExtensions"
+
+    productFlavors {
+        noDecoderExtensions {
+            dimension "decoderExtensions"
+            buildConfigField "boolean", "USE_DECODER_EXTENSIONS", "false"
+        }
+        withDecoderExtensions {
+            dimension "decoderExtensions"
+            buildConfigField "boolean", "USE_DECODER_EXTENSIONS", "true"
+        }
+    }
+    repositories {
+        maven {
+            url "https://maven.drm.technology/artifactory/studiodrm-widevine"
+            credentials {
+                username = mavenUsername
+                password = mavenPassword
+            }
+        }
+        maven {
+            url "https://maven.drm.technology/artifactory/kid-plugin"
+            credentials {
+                username = mavenUsername
+                password = mavenPassword
+            }
+        }
+    }
 }
 
-repositories {
-    flatDir {
+repositories{
+    flatDir{
         dirs 'libs'
     }
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "com.google.android.exoplayer:exoplayer-core:$exoplayerVersion"
-    implementation "com.google.android.exoplayer:exoplayer-dash:$exoplayerVersion"
-    implementation "com.google.android.exoplayer:exoplayer-ui:$exoplayerVersion"
-    implementation 'com.android.support:support-media-compat:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation "com.android.support:design:$androidSupportVersion"
-    implementation 'org.apache.commons:commons-lang3:3.5'
-    implementation 'com.vualto.vudrm:widevine:0.3.5'
-    implementation 'com.vualto.vudrm:kidplugin:0.3.5'
+    compileOnly 'org.checkerframework:checker-qual:3.3.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "com.google.android.exoplayer:exoplayer:$exoplayerVersion"
+    implementation "com.google.android.exoplayer:extension-ima:$exoplayerVersion"
+    implementation "com.google.android.exoplayer:extension-cronet:$exoplayerVersion"
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+//    implementation 'androidx.multidex:multidex:2.0.1'
+
+//    implementation 'com.android.support:multidex:1.0.3'
+
+    implementation 'com.vualto.studiodrm:widevine:1.0.0'
+    implementation 'com.vualto.studiodrm:kidplugin:1.0.0'
+    implementation 'com.google.android.material:material:1.2.1'
 }
